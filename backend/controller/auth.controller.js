@@ -27,7 +27,6 @@ const loginController = async (req, res) => {
     const query = login.includes('@')
         ? 'SELECT * FROM users WHERE email = ?'
         : 'SELECT * FROM users WHERE userName = ?';
-
     connection.execute(query, [login], (err, results) => {
         if (err) return res.status(500).json({ message: 'Error fetching user' });
 
@@ -49,4 +48,5 @@ const loginController = async (req, res) => {
 
 
 
-module.exports = { signupController, loginController }
+
+module.exports = { signupController, loginController}
