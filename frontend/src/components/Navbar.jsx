@@ -35,7 +35,8 @@ import ScheduleIcon from '@mui/icons-material/Schedule'; // Schedule Job Log
 import AssessmentIcon from '@mui/icons-material/Assessment';
 import WorkIcon from '@mui/icons-material/Work';
 import Report from '../pages/Report';
-
+import AtsChecker from '../pages/AtsChecker';
+import Atsicon from '@mui/icons-material/FactCheck';
 // const menuItems = [
 //     { text: 'New Candidate', icon: <PersonAddIcon sx={{ color: '#2760AD' }} /> },
 //     { text: 'New/In Process', icon: <HourglassEmptyIcon sx={{ color: '#2760AD' }} /> },
@@ -47,6 +48,7 @@ import Report from '../pages/Report';
 // ];
 
 const menuItems = [
+    { text: 'ATS Checker', icon: <Atsicon />, link: 'ats-checker',filter: 'null'},
     { text: 'Add a New Talent', icon: <PersonAddIcon />, link: 'add-a-new-talent', filter: null },
     { text: 'New Entries', icon: <HourglassEmptyIcon />, link: 'new-entries', filter: 'New' },
     { text: 'Confirmed Entries', icon: <CheckCircleIcon />, link: 'confirmed-entries', filter: 'Submitted' },
@@ -193,6 +195,7 @@ export default function Navbar() {
                         <Route path="/*" element={<FillingForm />} />
                         <Route path="/newcandidate" element={<FillingForm />} />
                         <Route path="/editcandidate/:id" element={<FillingForm isUpdate={true} />} />
+                        <Route path="/ats-checker" element={<AtsChecker />} />
                         {menuItems
                             .filter(item => item.filter)
                             .map(item => (
@@ -203,6 +206,7 @@ export default function Navbar() {
                                 />
                             ))}
                         <Route path="/report" element={<Report />} />
+                        
                         {/* <Route path="/schedulejoblog" element={<TableV3 filter={'Schedule Job Log'} />} /> */}
                     </Routes>
                 </Box>
